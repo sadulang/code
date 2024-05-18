@@ -1,6 +1,6 @@
 #!/bin/bash
 while true
 do
-        echo "SLEEP."
+        echo "BISMILLAH."
         sleep 15m
 done
